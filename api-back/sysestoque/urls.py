@@ -28,7 +28,7 @@ urlpatterns = [
     url(r'^', include('client.urls')),
     url(r'^', include('client_address.urls')),
     url(r'^', include('seller.urls')),
-    # url(r'^', include('order.urls')),
+    url(r'^', include('order.urls')),
     # url(r'^', include('order_itens.urls')),
     url(r'^', include('stock.urls'))
 ]
