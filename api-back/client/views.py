@@ -68,7 +68,7 @@ class get_post_clients(ListCreateAPIView):
     pagination_class = CustomPagination
     
     def get_queryset(self):
-       clients = Client.objects.all()
+       clients = Client.objects.all().filter(deleted_at__isnull=True)
        return clients
 
     # Get all clients
