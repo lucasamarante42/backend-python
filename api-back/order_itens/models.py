@@ -12,5 +12,5 @@ class OrderItens(models.Model):
     updated_at = models.DateTimeField(auto_now=True) # When it was update
     deleted_at = models.DateTimeField(null=True) 
 
-    product = models.ForeignKey(Product, on_delete=models.DO_NOTHING)
-    order = models.ForeignKey(Order, on_delete=models.DO_NOTHING)
+    product = models.ForeignKey(Product, on_delete=models.CASCADE)
+    order = models.ForeignKey(Order, on_delete=models.CASCADE)

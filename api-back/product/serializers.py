@@ -4,10 +4,11 @@ from django.contrib.auth.models import User
 
 
 class ProductSerializer(serializers.ModelSerializer):  # create class to serializer model
+    category_description = serializers.ReadOnlyField(source='category.description')
 
     class Meta:
         model = Product
-        fields = ('id', 'description', 'name', 'price', 'category')
+        fields = ('id', 'description', 'name', 'price', 'category_description', 'category')
 
 
 class UserAdminSerializer(serializers.ModelSerializer):  # create class to serializer usermodel

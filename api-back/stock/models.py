@@ -10,7 +10,7 @@ class Stock(models.Model):
     updated_at = models.DateTimeField(auto_now=True) # When i was update
     deleted_at = models.DateTimeField(null=True) 
 
-    product = models.ForeignKey(Product, on_delete=models.DO_NOTHING)
+    product = models.ForeignKey(Product, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.total_quantity
