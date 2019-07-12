@@ -5,4 +5,4 @@ class ClientAddressSerializer(serializers.ModelSerializer):  # create class to s
 
     class Meta:
         model = ClientAddress
-        fields = ('cellphone', 'telephone', 'street', 'details', 'number', 'neighborhood', 'city', 'state', 'country', 'client')
+        fields = ('zip_address', 'cellphone', 'telephone', 'street', 'details', 'number', 'neighborhood', 'city', 'state', 'country', 'client')

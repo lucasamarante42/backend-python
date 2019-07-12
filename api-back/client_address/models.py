@@ -4,10 +4,11 @@ from client.models import Client
 # Create your models here.
 class ClientAddress(models.Model):
     id = models.AutoField(primary_key=True)
+    zip_address = models.CharField(max_length=15) 
     cellphone = models.CharField(max_length=30)
     telephone = models.CharField(max_length=30)
     street = models.CharField(max_length=100)
-    details = models.CharField(max_length=100)
+    details = models.CharField(max_length=100, null=True, blank=True )
     number = models.IntegerField()
     neighborhood = models.CharField(max_length=100)
     city = models.CharField(max_length=100)
