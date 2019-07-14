@@ -68,7 +68,7 @@ class get_post_sellers(ListCreateAPIView):
     pagination_class = CustomPagination
     
     def get_queryset(self):
-       sellers = Seller.objects.all()
+       sellers = Seller.objects.all().filter(deleted_at__isnull=True)
        return sellers
 
     # Get all sellers

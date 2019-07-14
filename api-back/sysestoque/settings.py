@@ -110,22 +110,22 @@ DATABASES = {
     #     'PORT': '3307',
     # }
     #connect localhost
-    'default': {
-        'ENGINE': 'django.db.backends.mysql', 
-        'NAME': 'sysestoque',
-        'USER': 'root',
-        'PASSWORD': 'root',
-        'HOST': 'localhost',   # Or an IP Address that your DB is hosted on
-        'PORT': '3306',
-    }
     # 'default': {
     #     'ENGINE': 'django.db.backends.mysql', 
     #     'NAME': 'sysestoque',
     #     'USER': 'root',
-    #     'PASSWORD': 'ev@ngelhoJCN19',
+    #     'PASSWORD': 'root',
     #     'HOST': 'localhost',   # Or an IP Address that your DB is hosted on
     #     'PORT': '3306',
     # }
+    'default': {
+        'ENGINE': 'django.db.backends.mysql', 
+        'NAME': 'sysestoque',
+        'USER': 'root',
+        'PASSWORD': 'ev@ngelhoJCN19',
+        'HOST': 'localhost',   # Or an IP Address that your DB is hosted on
+        'PORT': '3306',
+    }
 }
 
 
