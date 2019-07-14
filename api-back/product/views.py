@@ -9,6 +9,8 @@ from .permissions import IsOwnerOrReadOnly, IsAuthenticated
 from .serializers import ProductSerializer
 from .pagination import CustomPagination
 
+from datetime import datetime
+
 class get_delete_update_product(RetrieveUpdateDestroyAPIView):
     serializer_class = ProductSerializer
     #permission_classes = (IsAuthenticated, IsOwnerOrReadOnly,)
@@ -51,9 +53,11 @@ class get_delete_update_product(RetrieveUpdateDestroyAPIView):
     def delete(self, request, pk):
 
         product = self.get_queryset(pk)
+        product.deleted_at = datetime.now()
+
+        product.save()
 
         #if(request.user == product.creator): # If creator is who makes request
-        product.delete()
         content = {
             'status': 'NO CONTENT'
         }
@@ -71,7 +75,7 @@ class get_post_products(ListCreateAPIView):
     pagination_class = CustomPagination
     
     def get_queryset(self):
-       products = Product.objects.all()
+       products = Product.objects.all().filter(deleted_at__isnull=True)
        return products
 
     # Get all products

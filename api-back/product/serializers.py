@@ -8,7 +8,7 @@ class ProductSerializer(serializers.ModelSerializer):  # create class to seriali
 
     class Meta:
         model = Product
-        fields = ('id', 'description', 'name', 'price', 'category_description', 'category')
+        fields = ('id', 'description', 'name', 'price', 'total_quantity', 'category_description', 'category')
 
 
 class UserAdminSerializer(serializers.ModelSerializer):  # create class to serializer usermodel
