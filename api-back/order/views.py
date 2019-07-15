@@ -75,7 +75,7 @@ class get_post_orders(ListCreateAPIView):
     pagination_class = CustomPagination
     
     def get_queryset(self):
-       orders = Order.objects.all()
+       orders = Order.objects.all().filter(deleted_at__isnull=True)
        return orders
 
     # Get all orders
