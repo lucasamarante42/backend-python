@@ -10,5 +10,8 @@ class Client(models.Model):
     updated_at = models.DateTimeField(auto_now=True) # When it was update
     deleted_at = models.DateTimeField(null=True) 
 
+    class Meta:
+        db_table = 'client'
+
     def __str__(self):
         return self.name

@@ -15,3 +15,6 @@ class Order(models.Model):
 
     client = models.ForeignKey(Client, on_delete=models.DO_NOTHING)
     seller = models.ForeignKey(Seller, on_delete=models.DO_NOTHING)
+
+    class Meta:
+        db_table = 'order'

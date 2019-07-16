@@ -7,5 +7,8 @@ class Category(models.Model):
     created_at = models.DateTimeField(auto_now_add=True) # When it was create
     updated_at = models.DateTimeField(auto_now=True) # When i was update
 
+    class Meta:
+        db_table = 'category'
+
     def __str__(self):
         return self.description

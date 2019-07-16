@@ -20,3 +20,6 @@ class ClientAddress(models.Model):
     deleted_at = models.DateTimeField(null=True) 
 
     client = models.ForeignKey(Client, on_delete=models.DO_NOTHING)
+
+    class Meta:
+        db_table = 'client_address'

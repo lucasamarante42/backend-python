@@ -12,6 +12,9 @@ class Stock(models.Model):
 
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
 
+    class Meta:
+        db_table = 'stock'
+
     def __str__(self):
         return self.total_quantity
 

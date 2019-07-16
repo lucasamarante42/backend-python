@@ -14,3 +14,6 @@ class OrderItens(models.Model):
 
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
     order = models.ForeignKey(Order, on_delete=models.CASCADE)
+
+    class Meta:
+        db_table = 'order_itens'
