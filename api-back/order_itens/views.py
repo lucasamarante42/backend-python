@@ -18,7 +18,7 @@ class get_delete_update_orders_itens(RetrieveUpdateDestroyAPIView):
     def get_queryset(self, pk):
         try:
             order_itens = OrderItens.objects.get(pk=pk)
-        except Order.DoesNotExist:
+        except OrderItens.DoesNotExist:
             content = {
                 'status': 'Not Found'
             }
@@ -94,3 +94,28 @@ class get_post_orders_itens(ListCreateAPIView):
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+class get_orders_itens_by_order_id(ListCreateAPIView):
+    serializer_class = OrderItensSerializer
+    #permission_classes = (IsAuthenticated,)
+    pagination_class = CustomPagination
+    
+    def get_queryset_by_order(self, order_id):
+        try:
+            order_itens = OrderItens.objects.all().filter(order=order_id)
+
+        except OrderItens.DoesNotExist:
+            content = {
+                'status': 'Not Found'
+            }
+            return Response(content, status=status.HTTP_404_NOT_FOUND)
+        return order_itens
+
+    # Get a order iten
+    def get(self, request, order_id):
+        
+        order_itens = self.get_queryset_by_order(order_id)
+        
+        paginate_queryset = self.paginate_queryset(order_itens)
+        serializer = self.serializer_class(paginate_queryset, many=True)
+        return self.get_paginated_response(serializer.data)

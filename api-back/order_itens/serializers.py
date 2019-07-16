@@ -7,4 +7,4 @@ class OrderItensSerializer(serializers.ModelSerializer):  # create class to seri
 
     class Meta:
         model = OrderItens
-        fields = ('quantity', 'date_order_iten', 'product_name', 'total_quantity_order', 'product', 'order')
+        fields = ('id', 'quantity', 'date_order_iten', 'product_name', 'total_quantity_order', 'product', 'order')
