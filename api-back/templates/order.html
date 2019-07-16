@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        
+        #info {
+            font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        #info td,
+        #info th {
+            border: 1px solid #ddd;
+            padding: 8px;
+            width: 20%;
+            font-family: sans-serif;
+            text-align: left;
+        }
+
+        #info tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        #info tr:hover {
+            background-color: #ddd;
+        }
+
+        #info th {
+            padding-top: 8px;
+            padding-bottom: 8px;
+            text-align: left;
+            background-color: #194384;
+            color: white;
+        }
+
+        #info td:first-child {
+            text-align: right;
+        }
+
+        #td {
+            font-family: sans-serif;
+        }
+
+        body {
+            font-family: sans-serif;
+        }
+
+        hr {
+            width: 50%;
+        }
+
+        .footer {
+            bottom: 0;
+            left: 0;
+            height: 40px;
+            position: fixed;
+            width: 100%;
+            color: #000;
+            text-align: center;
+            }
+    </style>
+</head>
+
+<body>
+
+    <div class="container-fluid">
+        <div class="row">
+            
+            <div class="col-md-6" style="text-align: center;">
+                <h1 class="text-center" >Relatório de Pedidos</h1>
+            </div>            
+        </div>
+
+
+        <div class="row" style="margin-top: 60px">
+            <div class="col-md-12">
+                
+                <!-- informacoes do pedido -->
+                <table id="info">
+
+                    <tr>
+                        <th colspan="5">Pedido Nº {{order_id}}</th>
+                    </tr>
+
+                    <tr>
+                        <th>Nome do Cliente</th>
+                        <th>Nome do Vendedor</th>
+                        <th>Quantidade Total</th>
+                        <th>Valor Total</th>
+                        <th>Data de Criação</th>
+                    </tr>
+
+                    <tr>
+                        <td>{{client_name}}</td>
+                        <td>{{seller_name}}</td>
+                        <td>{{total_quantity}}</td>
+                        <td>{{value_total}}</td>
+                        <td>{{date_order}}</td>
+                    </tr>
+
+                </table>
+                <br>
+                <br>                
+
+                <!-- informacoes dos itens do pedido -->
+                <table id="info">
+                    
+                    <tr>
+                        <th colspan="2">Itens do Pedido</th>
+                    </tr>
+
+                    <tr>
+                        <td>Descrição</td>
+                        <td>
+                        {% if lst_order_itens %}
+                            {% for item in lst_order_itens %}
+                            Nome do Produto: {{ item.product_name }}
+                            <br> 
+                            Quantidade: {{ item.quantity }}
+                            <br>
+                            <br> {% endfor %}
+                        {% else %}
+                            Não possui itens no pedido
+                        {% endif %}
+                        </td>
+                    </tr>
+
+                </table>
+                <br>
+                <br>    
+
+            </div>
+        </div>
+    </div>
+
+    <!-- <div class="footer">
+            <p> Todos os direitos reservados - 2019  </p>
+    </div> -->
+</body>
+
+</html>

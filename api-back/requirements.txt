@@ -5,3 +5,4 @@ django-allauth
 mysqlclient
 gunicorn
 django-cors-headers
+pdfkit
