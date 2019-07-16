@@ -11,7 +11,7 @@ urlpatterns = [
         views.get_post_orders.as_view(),
         name='get_post_orders'
     ),
-    re_path(r'^api/v1/orders-to-pdf/(?P<pk>[0-9]+)$', # Url to get update or delete a orders
+    re_path(r'^api/v1/orders_to_pdf/(?P<pk>[0-9]+)$', # Url to get update or delete a orders
         views.get_orders_to_pdf.as_view(),
         name='get_orders_to_pdf'
     )
