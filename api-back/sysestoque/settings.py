@@ -12,6 +12,14 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 
 import os
 
+import sentry_sdk
+from sentry_sdk.integrations.django import DjangoIntegration
+
+sentry_sdk.init(
+    dsn="https://1140e6bbbd76487986072ba06ca67c21@sentry.io/1518565",
+    integrations=[DjangoIntegration()]
+)
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -113,22 +121,22 @@ DATABASES = {
     #     'PORT': '3307',
     # }
     #connect localhost
-    # 'default': {
-    #     'ENGINE': 'django.db.backends.mysql', 
-    #     'NAME': 'sysestoque',
-    #     'USER': 'root',
-    #     'PASSWORD': 'root',
-    #     'HOST': 'localhost',   # Or an IP Address that your DB is hosted on
-    #     'PORT': '3306',
-    # }
     'default': {
         'ENGINE': 'django.db.backends.mysql', 
         'NAME': 'sysestoque',
         'USER': 'root',
-        'PASSWORD': 'ev@ngelhoJCN19',
+        'PASSWORD': 'root',
         'HOST': 'localhost',   # Or an IP Address that your DB is hosted on
         'PORT': '3306',
     }
+    # 'default': {
+    #     'ENGINE': 'django.db.backends.mysql', 
+    #     'NAME': 'sysestoque',
+    #     'USER': 'root',
+    #     'PASSWORD': 'ev@ngelhoJCN19',
+    #     'HOST': 'localhost',   # Or an IP Address that your DB is hosted on
+    #     'PORT': '3306',
+    # }
 }
 
 
