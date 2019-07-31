@@ -18,6 +18,10 @@ from django.urls import path
 from django.conf.urls import include, url
 from .views import RegisterView, CustomLoginView
 
+from rest_framework_swagger.views import get_swagger_view
+
+schema_view = get_swagger_view(title='API documentation')
+
 urlpatterns = [
     url('admin/', admin.site.urls),
     url(r'^rest-auth/login/', CustomLoginView.as_view()),
@@ -30,5 +34,6 @@ urlpatterns = [
     url(r'^', include('seller.urls')),
     url(r'^', include('order.urls')),
     url(r'^', include('order_itens.urls')),
-    url(r'^', include('stock.urls'))
+    url(r'^', include('stock.urls')),
+    url(r'api/', schema_view)
 ]

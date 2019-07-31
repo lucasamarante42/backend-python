@@ -7,3 +7,4 @@ gunicorn
 django-cors-headers
 pdfkit
 sentry-sdk==0.10.2
+django-rest-swagger
