@@ -6,5 +6,5 @@ mysqlclient
 gunicorn
 django-cors-headers
 pdfkit
-sentry-sdk==0.10.2
+sentry-sdk==1.14.0
 django-rest-swagger
